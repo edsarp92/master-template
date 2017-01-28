@@ -1,0 +1,41 @@
+spring:
+    jackson:
+        serialization.indent_output: true
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://192.168.212.36:5432/master_template
+        name:
+        username: postgres
+        password: password
+    mail:
+        host: smtp.gmail.com
+        #host: 192.168.212.33
+        port: 587
+        username: edwar.saripudin92@gmail.com
+        password: aaaaaaaaaa
+        properties.mail.smtp:
+                auth: true
+                starttls.enable: true
+    messages:
+        cache-seconds: 1
+    thymeleaf:
+        cache: true
+
+server:
+    port: 8080
+    session:
+      cookie:
+        max-age: 120
+      timeout: 120
+
+gateway:
+    security:
+        authentication:
+            jwt:
+                secret: my-secret-token-to-change-in-production
+                # Token is valid 24 hours
+                tokenValidityInSeconds: 86400
+    mail:
+        from: sedwar92@gmail.com
+    BackEndRestApi:
+        url: http://10.10.22.194:8099

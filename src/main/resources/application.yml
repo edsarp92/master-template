@@ -1,0 +1,33 @@
+spring:
+    application:
+        name: gateway
+
+    jackson:
+        serialization.write_dates_as_timestamps: false
+    messages:
+        basename: i18n/messages
+    mvc:
+        view:
+          prefix: /
+          suffix: .html
+        favicon:
+            enabled: true
+    thymeleaf:
+        mode: XHTML
+
+security:
+    basic:
+        enabled: false
+
+gateway:
+    async:
+        corePoolSize: 2
+        maxPoolSize: 50
+        queueCapacity: 10000
+    mail:
+        from: gateway@localhost
+
+mybatis:
+    typeAliasesPackage: com.master.template.domain
+    mapperLocations: classpath*:/mapper/**/*.xml
+    typeHandlersPackage: org.apache.ibatis.type.ZonedDateTimeTypeHandler
